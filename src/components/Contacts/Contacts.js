@@ -24,13 +24,14 @@ export class Contacts extends Component {
     const { filter } = this.state;
     const { title, onDeleteContact } = this.props;
     const filteredContacts = this.getFilteredContacts();
+    console.log(filteredContacts.length);
 
     return (
       <>
         <h2 className={s.title}>{title}</h2>
         <Filter filter={filter} onFilter={this.handleFilter} />
         <ul className={s.contactsList}>
-          {filteredContacts &&
+          {filteredContacts.length > 0 &&
             filteredContacts.map(({ id, name, tel }) => (
               <li key={id} className={s.contact}>
                 <span className={s.name}>{name}</span>
